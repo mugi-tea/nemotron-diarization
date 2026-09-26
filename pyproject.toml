@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "livediar"
+version = "0.1.0"
+description = "Real-time 'who said what' for Japanese on Apple Silicon: Nemotron 3 diarization + per-turn ASR"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+dependencies = ["numpy>=1.26"]
+
+[project.optional-dependencies]
+qwen = ["mlx-audio>=0.5"]
+whisper = ["mlx-whisper>=0.4"]
+dev = ["pytest>=8"]
+
+[project.urls]
+Homepage = "https://github.com/mugi-tea/nemotron-diarization"
+
+[project.scripts]
+livediar = "livediar.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["livediar*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["integration: needs NeMo-Speech.cpp, cached models and (optionally) ASR backends"]

@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.egg-info/
+.pytest_cache/
+sessions/
+_work/
+models/
+tools/micpipe
+tools/mictest
+*.log
+.DS_Store
